@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الإدمان | التوعية والوقاية</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Tahoma", "Arial", sans-serif;
+            background: #f4f7f9;
+            color: #263238;
+            line-height: 1.9;
+        }
+
+        /* شريط التنقل */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #123b4a;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #6dd5ed;
+        }
+
+        /* الواجهة الرئيسية */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                linear-gradient(rgba(18,59,74,0.88), rgba(18,59,74,0.88)),
+                linear-gradient(135deg, #176b87, #123b4a);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #6dd5ed;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 30px;
+            color: #e6f4f8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6dd5ed;
+            color: #123b4a;
+            padding: 13px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* الأقسام */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #123b4a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #607d8b;
+        }
+
+        /* البطاقات */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-right: 5px solid #2b8aa3;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #176b87;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #546e7a;
+        }
+
+        /* قائمة الأسباب */
+        .causes {
+            background: #eaf4f7;
+        }
+
+        .cause-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .cause {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .cause span {
+            width: 35px;
+            height: 35px;
+            background: #176b87;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* خطوات العلاج */
+        .steps {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .step-number {
+            min-width: 50px;
+            height: 50px;
+            background: #176b87;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #123b4a;
+            margin-bottom: 5px;
+        }
+
+        /* الخاتمة */
+        .conclusion {
+            background: #123b4a;
+            color: white;
+            text-align: center;
+        }
+
+        .conclusion h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .conclusion p {
+            max-width: 850px;
+            margin: auto;
+            color: #e1f0f4;
+            font-size: 18px;
+        }
+
+        /* التذييل */
+        footer {
+            background: #0b2934;
+            color: #b7cbd1;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* الجوال */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cards,
+            .cause-list {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 55px 5%;
+            }
+
+            .step {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="logo">الإدمان</div>
+
+        <ul>
+            <li><a href="#about">ما هو الإدمان؟</a></li>
+            <li><a href="#causes">المسببات</a></li>
+            <li><a href="#effects">التأثيرات</a></li>
+            <li><a href="#treatment">التخلص من الإدمان</a></li>
+            <li><a href="#conclusion">الخاتمة</a></li>
+        </ul>
+    </nav>
+
+    <!-- الصفحة الرئيسية -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>التوعية حول <span>الإدمان</span></h1>
+
+            <p>
+                الإدمان مشكلة قد تؤثر في صحة الإنسان ودراسته وعمله
+                وعلاقاته ومستقبله، ولكن طلب المساعدة والعلاج في الوقت
+                المناسب يمكن أن يساعد على استعادة الحياة.
+            </p>
+
+            <a href="#about" class="btn">ابدأ القراءة</a>
+        </div>
+    </header>
+
+    <!-- مقدمة -->
+    <section id="about">
+        <div class="section-title">
+            <h2>ما هو الإدمان؟</h2>
+            <p>فهم المشكلة هو الخطوة الأولى نحو التعامل معها.</p>
+        </div>
+
+        <div class="card" style="max-width: 1000px; margin: auto;">
+            <div class="icon">🧠</div>
+
+            <p>
+                الإدمان هو حالة تجعل الشخص يشعر بحاجة شديدة ومتكررة إلى
+                القيام بسلوك معين أو استخدام مادة معينة، رغم معرفة الأضرار
+                التي قد تنتج عنه.
+            </p>
+
+            <br>
+
+            <p>
+                ومن أمثلة ذلك إدمان المخدرات والتدخين، وبعض السلوكيات مثل
+                الاستخدام المفرط للألعاب الإلكترونية أو وسائل التواصل الاجتماعي.
+            </p>
+
+            <br>
+
+            <p>
+                ولا يؤثر الإدمان على الشخص وحده، بل قد يؤثر أيضًا على أسرته
+                ودراسته وعمله وعلاقاته بالآخرين.
+            </p>
+        </div>
+    </section>
+
+    <!-- المسببات -->
+    <section id="causes" class="causes">
+        <div class="section-title">
+            <h2>مسببات الإدمان</h2>
+            <p>تختلف الأسباب من شخص إلى آخر، وقد تجتمع عدة عوامل معًا.</p>
+        </div>
+
+        <div class="cause-list">
+
+            <div class="cause">
+                <span>1</span>
+                <p>رفاق السوء والضغط من الأصدقاء.</p>
+            </div>
+
+            <div class="cause">
+                <span>2</span>
+                <p>محاولة الهروب من المشكلات أو الضغوط النفسية.</p>
+            </div>
+
+            <div class="cause">
+                <span>3</span>
+                <p>الفضول والرغبة في تجربة شيء جديد.</p>
+            </div>
+
+            <div class="cause">
+                <span>4</span>
+                <p>ضعف الوعي بأضرار المواد أو السلوكيات المسببة للإدمان.</p>
+            </div>
+
+            <div class="cause">
+                <span>5</span>
+                <p>المشكلات الأسرية أو الاجتماعية.</p>
+            </div>
+
+            <div class="cause">
+                <span>6</span>
+                <p>سهولة الوصول إلى بعض المواد أو السلوكيات التي قد تسبب الإدمان.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- التأثيرات -->
+    <section id="effects">
+        <div class="section-title">
+            <h2>تأثير الإدمان على حياتنا</h2>
+            <p>قد يمتد تأثير الإدمان إلى معظم جوانب حياة الإنسان.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">❤️</div>
+                <h3>الناحية الصحية</h3>
+                <p>
+                    قد يؤدي الإدمان إلى مشكلات جسدية ونفسية، ويؤثر في النوم
+                    والطاقة والصحة العامة.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>الدراسة والعمل</h3>
+                <p>
+                    يمكن أن يؤدي إلى ضعف التركيز وانخفاض مستوى التحصيل
+                    أو الإنتاجية وكثرة الغياب والتقصير في المسؤوليات.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👨‍👩‍👧‍👦</div>
+                <h3>الجانب الاجتماعي</h3>
+                <p>
+                    قد يسبب مشكلات مع الأسرة والأصدقاء، ويؤدي إلى العزلة
+                    وفقدان الثقة بين الشخص ومن حوله.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>الجانب الاقتصادي</h3>
+                <p>
+                    قد ينفق الشخص أموالًا كثيرة على ما يدمنه، مما قد يؤدي
+                    إلى مشكلات مالية.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- التخلص من الإدمان -->
+    <section id="treatment" class="causes">
+        <div class="section-title">
+            <h2>كيفية التخلص من الإدمان</h2>
+            <p>التخلص من الإدمان ممكن، لكنه يحتاج إلى صبر ومساعدة مناسبة.</p>
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>الاعتراف بالمشكلة</h3>
+                    <p>
+                        الاعتراف بوجود المشكلة وطلب المساعدة يمثل خطوة مهمة
+                        نحو التغيير.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>طلب الدعم</h3>
+                    <p>
+                        الاستعانة بالأسرة والأشخاص الموثوقين للحصول على الدعم
+                        والتشجيع.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>الاستعانة بالمختصين</h3>
+                    <p>
+                        مراجعة المختصين في علاج الإدمان والصحة النفسية
+                        للحصول على المساعدة المناسبة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>الابتعاد عن المحفزات</h3>
+                    <p>
+                        الابتعاد عن الأشخاص والأماكن التي تشجع على العودة
+                        إلى الإدمان.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>ممارسة أنشطة مفيدة</h3>
+                    <p>
+                        استبدال السلوك الضار بأنشطة مفيدة مثل الرياضة
+                        والهوايات والأنشطة الاجتماعية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">6</div>
+                <div>
+                    <h3>الاستمرار وعدم الاستسلام</h3>
+                    <p>
+                        الالتزام بخطة العلاج وعدم الاستسلام عند حدوث انتكاسة،
+                        مع طلب الدعم عند الحاجة.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- الخاتمة -->
+    <section id="conclusion" class="conclusion">
+        <h2>الخاتمة</h2>
+
+        <p>
+            وفي الختام، الإدمان مشكلة قد تؤثر في صحة الإنسان ودراسته وعمله
+            وعلاقاته ومستقبله، ولكن طلب المساعدة والعلاج في الوقت المناسب
+            يمكن أن يساعد الشخص على استعادة حياته.
+        </p>
+
+        <br>
+
+        <p>
+            فلنحافظ على صحتنا، ولنبتعد عن كل ما قد يقودنا إلى الإدمان،
+            ولنساعد من يحتاج إلى الدعم بدلًا من الحكم عليه.
+        </p>
+
+        <br>
+
+        <strong>وشكرا لزيارتكم هذا الموقع🌷</strong>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <p>© 2026 | صفحة توعوية عن الإدمان</p>
+        <p>الوعي بداية الطريق نحو حياة أفضل</p>
+    </footer>
+
+</body>
+</html>
